@@ -1,0 +1,59 @@
+﻿@model iThinking.ViewModel.Identity.LoginViewModel
+@using iThinking.ViewModel.Identity
+
+@{
+    string application_Name = System.Configuration.ConfigurationManager.AppSettings["Application_Name"];
+    string application_Version = System.Configuration.ConfigurationManager.AppSettings["Application_Version"];
+}
+
+@{
+    ViewBag.Title = "Login system";
+    Layout = "~/Views/Shared/Backend/_LayoutLogin.cshtml";
+}
+
+<div class="center-block" style="width: 360px; padding-top: 100px;">
+    <div class="login-logo">
+        @*<a href="javascript:void(0);"><b>BIDC</b>@application_Name</a>*@
+        <img src="~/Content/Shared/images/Logo.png" />
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">Login System</p>
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Username" })
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+
+            <div class="form-group has-feedback">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        }
+    </div>
+    <br />
+    <p class="text-center text-muted mt-3 mb-3">&copy; 2019. BIDC IT Department.</p>
+    <p class="text-center text-muted mt-3 mb-3">Version: <b style="color: green;">@application_Version</b></p>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->

@@ -1,0 +1,20 @@
+﻿<div class="form-group">
+    <span class="control-label col-md-2">Roles</span>
+    <div class="col-md-10">
+        @foreach (var project in ((List<ApplicationRole>)ViewBag.Roles).GroupBy(a => a.ApplicationProjectId).Select(m => m.First()).ToList())
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">@project.ApplicationProjectId</div>
+                <div class="panel-body">
+
+                    @foreach (var item in ((List<ApplicationRole>)ViewBag.Roles).Where(m => m.ApplicationProjectId == project.ApplicationProjectId).OrderBy(m => m.Name).ToList())
+                    {
+                        <div class="col-sm-4">
+                            <input type="checkbox" value="@item.Id"> @item.Name
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

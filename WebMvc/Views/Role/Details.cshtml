@@ -1,0 +1,75 @@
+﻿@model iThinking.ViewModel.Identity.ApplicationRoleViewModel
+@using WebMvc.Helpers;
+
+@{
+    ViewBag.Title = "Role details";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        @ViewBag.Title
+        <small>Role/Details</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">User management</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-default">
+                <div class="box-header">
+                    <div class="col-md-8">
+                        <h3 class="box-title">Role information</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <a title="Edit" href="@Url.Content("~/Role/Edit/")@Model.Id" class="btn btn-xs btn-primary"><i class="fa fa-fw fa-pencil"></i></a>
+                        @Html.NoEncodeActionLink("<i class='fa fa-fw fa-close'></i>","Delete", "Delete", "Role", new { id = Model.Id },
+                        new { onclick = "return confirm('Are you sure you wish to delete this item?');", @class = "btn btn-xs btn-danger" })
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2" width="50%"></th>
+                                <th scope="col" colspan="2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Id)</th>
+                                <td>@Html.DisplayFor(model => model.Id)</td>
+                                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                <td>@Html.DisplayFor(model => model.Name)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                                <td>@Html.DisplayFor(model => model.Title)</td>
+                                <th>@Html.DisplayNameFor(model => model.GroupName)</th>
+                                <td>@Html.DisplayFor(model => model.GroupName)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.ApplicationProjectId)</th>
+                                <td>@Html.DisplayFor(model => model.ApplicationProjectId)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                                <td colspan="3">@Html.DisplayFor(model => model.Description)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
