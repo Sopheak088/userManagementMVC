@@ -119,13 +119,9 @@
     <Compile Include="Identity\ApplicationUserLogin.cs" />
     <Compile Include="Identity\ApplicationUserRole.cs" />
     <Compile Include="Identity\Bases\ApplicationUserBase.cs" />
-    <Compile Include="Migrations\201903190952029_Create.cs" />
-    <Compile Include="Migrations\201903190952029_Create.Designer.cs">
-      <DependentUpon>201903190952029_Create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904230816578_Update1.cs" />
-    <Compile Include="Migrations\201904230816578_Update1.Designer.cs">
-      <DependentUpon>201904230816578_Update1.cs</DependentUpon>
+    <Compile Include="Migrations\201907120736420_Create.cs" />
+    <Compile Include="Migrations\201907120736420_Create.Designer.cs">
+      <DependentUpon>201907120736420_Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -150,11 +146,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903190952029_Create.resx">
-      <DependentUpon>201903190952029_Create.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904230816578_Update1.resx">
-      <DependentUpon>201904230816578_Update1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907120736420_Create.resx">
+      <DependentUpon>201907120736420_Create.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

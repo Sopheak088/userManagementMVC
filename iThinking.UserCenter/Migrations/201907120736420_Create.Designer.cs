@@ -13,7 +13,7 @@ namespace iThinking.UserCenter.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201903190952029_Create"; }
+            get { return "201907120736420_Create"; }
         }
         
         string IMigrationMetadata.Source
